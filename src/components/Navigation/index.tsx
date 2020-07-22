@@ -15,7 +15,7 @@ const Navigation = () => {
   return (
 	<StyledNavigation>
 	  <Link to="/">Важные дела</Link>
-	  <Link to="daily-doings">Постоянные дела</Link>{" "}
+	  <Link to="daily-doings">Дела на сегодня</Link>{" "}
 	  <Link to="my-secret">Секретные дела</Link>
 	</StyledNavigation>
   )

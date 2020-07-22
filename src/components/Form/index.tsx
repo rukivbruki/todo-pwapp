@@ -1,8 +1,10 @@
-import React, {useContext, useEffect, useRef} from "react";
+import React, {useContext} from "react";
 import styled from 'styled-components';
 import {Context} from "../../services/сontextCreater";
+import {PropsInterface} from "../../services/interfaces";
 
-import List from "../List/List"
+import List from "../List"
+
 
 const StyledForm = styled.form`
   color: white;
@@ -12,10 +14,9 @@ const Loader = styled.div`
   text-align: center;
 `;
 
-const Form = (props) => {
-  console.log("Form", props)
+const Form = (props: PropsInterface) => {
   let {state} = useContext(Context)
-  
+
   return (
 	<StyledForm
 	  id="form">

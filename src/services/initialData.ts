@@ -1,5 +1,7 @@
 import {generateUnicueId} from "./utils";
 
+const groupKeys = ["all", "daily-doings", "my-secret"]
+
 const createEmptyTodo = () => {
   let id = generateUnicueId()
   return {
@@ -11,8 +13,6 @@ const createEmptyTodo = () => {
 	isOverdue: false
   }
 }
-
-const groupKeys = ["all", "daily-doings", "my-secret"]
 const initialData = {
   [groupKeys[0]]: [
 	{

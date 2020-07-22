@@ -1,14 +1,15 @@
 import {Context} from "../../services/сontextCreater";
 import React, {useContext} from "react";
 import styled from 'styled-components';
-import {ActionCreator} from "../../reduser/reducer";
+import {ActionCreator} from "../../reduser";
 import {useLocalStorage} from "../../services/useLocalStorage";
+import {PropsInterface} from "../../services/interfaces";
 
-const StyledCheckbox = styled.div`
+const StyledCheckbox = styled.div<PropsInterface>`
   position: relative;
   width: 18px;
   height: 18px;
-  border-radius: ${todo => todo.isCompleted ? "50%" : "100%"};
+  border-radius: ${props => props.todo.isCompleted ? "50%" : "100%"};
   margin-right: 10px;
   margin-left: 10px;
   cursor: pointer;
@@ -39,11 +40,11 @@ const StyledCheckbox = styled.div`
   }
 `;
 
-const Checkbox = (props) => {
+const Checkbox = (props: PropsInterface) => {
   const {todoItems, todo, i} = props
   let [storedValue, setValue] = useLocalStorage()
   let {dispatch} = useContext(Context)
-  const args = {i, todoItems, storedValue, setValue}
+  const args = {i, todoItems, todo, storedValue, setValue}
   return (
 	<StyledCheckbox {...props}
 					onClick={() => dispatch(ActionCreator.setCompletedStatus(args))}

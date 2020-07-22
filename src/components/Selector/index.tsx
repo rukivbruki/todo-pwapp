@@ -1,24 +1,26 @@
 import React, {useContext} from "react";
 import 'antd/dist/antd.css';
 import {Select} from 'antd';
-import {ActionCreator} from "../../reduser/reducer";
+import {ActionCreator} from "../../reduser";
 import {Context} from "../../services/сontextCreater";
 import {groupKeys} from "../../services/initialData";
 import {useLocalStorage} from "../../services/useLocalStorage";
+import {PropsInterface} from "../../services/interfaces";
 
-const Selector = (props) => {
+const Selector = (props: PropsInterface) => {
   const {Option} = Select;
   const {state, dispatch} = useContext(Context);
   const {todoItems, todo, i} = props
   const [storedValue, setValue] = useLocalStorage()
-  const args = {i, state, todoItems, todo, dispatch, storedValue, setValue}
+  const args = {i, todoItems, todo, dispatch, storedValue, setValue}
   return (
 	<Select
 	  showSearch
 	  // placeholder="Выберите группу"
 	  optionFilterProp="children"
-	  onChange={(value) => dispatch(ActionCreator.changeGroup(value, args))}
+	  onChange={(value: string) => dispatch(ActionCreator.changeGroup(value, state, args))}
 	  filterOption={(input, option) =>
+		// @ts-ignore
 		option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
 	  }
 	>

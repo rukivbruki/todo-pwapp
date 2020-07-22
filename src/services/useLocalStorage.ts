@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {initialData} from "./initialData";
+import {StateInterface} from "./interfaces";
 
 function useLocalStorage(key = "store", initialValue = initialData) {
   const [storedValue, setStoredValue] = useState(() => {
@@ -11,8 +12,8 @@ function useLocalStorage(key = "store", initialValue = initialData) {
 	  return initialValue;
 	}
   });
-  
-  const setValue = value => {
+
+  const setValue = (value: (value: StateInterface) => void) => {
 	try {
 	  const valueToStore =
 		value instanceof Function ? value(storedValue) : value;

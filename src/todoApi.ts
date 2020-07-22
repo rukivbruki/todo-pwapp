@@ -1,6 +1,7 @@
 import {initialData} from "./services/initialData";
+import {StateInterface} from "./services/interfaces";
 
-const todoApi = () => {
+const todoApi = (): Promise<StateInterface> => {
   return new Promise((resolve, reject) => {
 	setTimeout(() => {
 	  initialData ?

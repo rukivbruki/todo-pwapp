@@ -1,8 +1,9 @@
 import React from "react";
 import {Droppable} from "react-beautiful-dnd";
 import styled from 'styled-components';
+import {PropsInterface} from "../../services/interfaces";
 
-import TodoTask from "../TodoTask/TodoTask";
+import TodoTask from "../TodoTask";
 
 const StyledList = styled.ul`
   display: grid;
@@ -10,7 +11,7 @@ const StyledList = styled.ul`
   padding: 0;
 `;
 
-const List = (props) => {
+const List = (props: PropsInterface) => {
   const {todoItems} = props
   console.log("List", todoItems)
   return (

@@ -2,13 +2,13 @@ import React, {Fragment} from "react";
 import logo from "../../logo.svg";
 import styled from 'styled-components';
 
-import Navigation from "../Navigation/Navigation";
+import Navigation from "../Navigation";
 
-const Layout = styled.div`
-	grid-area: header;
+const Index = styled.div`
+  grid-area: header;
 `;
 const Main = styled.main`
-	grid-area: main;
+  grid-area: main;
 `;
 const Header = styled.div`
   display: grid;
@@ -29,15 +29,15 @@ const Logo = styled.img`
 }
 `;
 
-export default ({children}) => {
+export default ({children}: JSX.ElementChildrenAttribute) => {
   return (
 	<Fragment>
-	  <Layout>
+	  <Index>
 		<Header>
 		  <Logo src={logo} alt="logo"/>
 		  <Navigation/>
 		</Header>
-	  </Layout>
+	  </Index>
 	  <Main>{children}</Main>
 	</Fragment>
   );
