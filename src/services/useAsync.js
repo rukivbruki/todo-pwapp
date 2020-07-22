@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {ActionCreator} from "../reduser/reducer";
+import {useCallback, useEffect, useState} from 'react';
+import {ActionCreator} from "../reduser";
 
 const useAsync = (dispatch, todoApi, immediate = true) => {
   const [pending, setPending] = useState(false);
@@ -8,7 +8,7 @@ const useAsync = (dispatch, todoApi, immediate = true) => {
 	.then((result) => dispatch(ActionCreator.initial(pending, result)))
 	.catch(error => console.log(error))
 	.finally(() => setPending(true));
-  }, [todoApi]);
+  }, [todoApi, dispatch]);
   
   useEffect(() => {
 	if (immediate) {

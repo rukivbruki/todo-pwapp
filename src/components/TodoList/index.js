@@ -2,9 +2,9 @@ import React, {useContext} from "react";
 import {Context} from "../../services/сontextCreater";
 import {DragDropContext} from "react-beautiful-dnd";
 import {useLocalStorage} from "../../services/useLocalStorage";
-import {saveStorageState} from "../../reduser/reducer";
+import {saveStorageState} from "../../reduser";
 
-import Form from "../Form/Form";
+import Form from "../Form";
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);

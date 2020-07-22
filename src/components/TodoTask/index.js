@@ -1,15 +1,15 @@
 import React, {useContext} from "react";
 import {Draggable} from "react-beautiful-dnd";
-import Input from "../Input/Input";
+import Input from "../Input";
 import DatePicker from "antd/es/date-picker";
-import Selector from "../Selector/Selector"
+import Selector from "../Selector"
 import styled from 'styled-components';
 import moment from "moment";
-import {ActionCreator} from "../../reduser/reducer";
+import {ActionCreator} from "../../reduser";
 import {Context} from "../../services/сontextCreater";
 import {useLocalStorage} from "../../services/useLocalStorage";
 
-import Checkbox from "../Checkbox/Checkbox";
+import Checkbox from "../Checkbox";
 
 
 const StyledToTask = styled.div`

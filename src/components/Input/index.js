@@ -1,6 +1,6 @@
-import React, {useContext, useEffect, useRef} from "react";
+import React, {useContext} from "react";
 import styled from 'styled-components';
-import {ActionCreator, handleKeyDown} from "../../reduser/reducer";
+import {ActionCreator, handleKeyDown} from "../../reduser";
 import {Context} from "../../services/сontextCreater";
 import {useLocalStorage} from "../../services/useLocalStorage";
 

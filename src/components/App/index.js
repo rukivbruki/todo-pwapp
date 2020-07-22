@@ -1,16 +1,16 @@
 import React, {useEffect, useReducer} from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import styled, {createGlobalStyle} from 'styled-components';
-import Layout from "../Layout/Layout";
-import {reducer} from "../../reduser/reducer";
+import Layout from "../Layout";
+import {reducer} from "../../reduser";
 import {Context} from "../../services/сontextCreater";
 import {useAsync} from "../../services/useAsync";
 import {useLocalStorage} from "../../services/useLocalStorage";
 import {todoApi} from "../../todoApi";
 
-import MainPage from "../MainPage/MainPage";
-import DailyDoings from "../DailyDoings/DailyDoings";
-import MySecret from "../MySecret/MySecret";
+import MainPage from "../MainPage";
+import DailyDoings from "../DailyDoings";
+import MySecret from "../MySecret";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -46,7 +46,7 @@ const Wrapper = styled.div`
 
 const App = () => {
   // window.localStorage.removeItem("store")
-  let [storedValue, setValue] = useLocalStorage()
+  let [storedValue] = useLocalStorage()
   let [state, dispatch] = useReducer(reducer, storedValue);
   console.log("App", state)
   const {execute} = useAsync(dispatch, todoApi, false);

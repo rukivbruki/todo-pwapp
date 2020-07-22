@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import 'antd/dist/antd.css';
 import {Select} from 'antd';
-import {ActionCreator} from "../../reduser/reducer";
+import {ActionCreator} from "../../reduser";
 import {Context} from "../../services/сontextCreater";
 import {groupKeys} from "../../services/initialData";
 import {useLocalStorage} from "../../services/useLocalStorage";

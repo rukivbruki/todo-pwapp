@@ -1,7 +1,7 @@
 import {Context} from "../../services/сontextCreater";
 import React, {useContext} from "react";
 import styled from 'styled-components';
-import {ActionCreator} from "../../reduser/reducer";
+import {ActionCreator} from "../../reduser";
 import {useLocalStorage} from "../../services/useLocalStorage";
 
 const StyledCheckbox = styled.div`

@@ -1,5 +1,4 @@
 import moment from "moment"
-import {setGroup} from "../reduser/reducer";
 
 const generateUnicueId = () => `f${(~~(Math.random() * 1e8)).toString(16)}`;
 

@@ -1,8 +1,8 @@
-import React, {useContext, useEffect, useRef} from "react";
+import React, {useContext} from "react";
 import styled from 'styled-components';
 import {Context} from "../../services/сontextCreater";
 
-import List from "../List/List"
+import List from "../List"
 
 const StyledForm = styled.form`
   color: white;

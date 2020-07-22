@@ -2,7 +2,7 @@ import React, {Fragment} from "react";
 import logo from "../../logo.svg";
 import styled from 'styled-components';
 
-import Navigation from "../Navigation/Navigation";
+import Navigation from "../Navigation";
 
 const Layout = styled.div`
 	grid-area: header;

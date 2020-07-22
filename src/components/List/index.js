@@ -2,7 +2,7 @@ import React from "react";
 import {Droppable} from "react-beautiful-dnd";
 import styled from 'styled-components';
 
-import TodoTask from "../TodoTask/TodoTask";
+import Index from "../TodoTask";
 
 const StyledList = styled.ul`
   display: grid;
@@ -20,7 +20,7 @@ const List = (props) => {
 					 ref={provided.innerRef}>
 		  {todoItems.map((todo, i) => (
 			<React.Fragment key={todo.id}>
-			  <TodoTask {...props} todo={todo} i={i}/>
+			  <Index {...props} todo={todo} i={i}/>
 			</React.Fragment>
 		  ))}
 		  {provided.placeholder}
