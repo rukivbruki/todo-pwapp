@@ -2,7 +2,7 @@
 
 **_Основной стек:_** 
 
-CSS Grid Layout, Styled Components, JS (ES2019), React.js (useReducer, useContext, useEffect, useState, useCallback, custom hooks), localStorage
+CSS Grid Layout, Styled Components, Ant Design,  JS (ES2019), React.js (useReducer, useContext, useEffect, useState, useCallback, custom hooks)
 
 ## Ветка `typescript`
 
@@ -24,11 +24,11 @@ CSS Grid Layout, Styled Components, JS (ES2019), React.js (useReducer, useContex
 
 _**Основной функционал:**_
 
-- Создание задачи
-- Удаление задачи
-- Отметка о выполнении задачи
-- Перемещение задачи между разделами
-- Установка дед-лайна и напоминание о просроченной задаче
-- Drag and Drop внутри списка задач
-- Сохранение состояния приложения в localStorage
-- Доступ ко всем функциям приложения при помощи клавиатуры (accessibility)
+- Создание задачи;
+- Удаление задачи;
+- Отметка о выполнении задачи;
+- Перемещение задачи между разделами;
+- Установка дед-лайна и напоминание о просроченной задаче;
+- Drag and Drop внутри списка задач;
+- Сохранение состояния приложения в localStorage;
+- Доступ ко всем функциям приложения при помощи клавиатуры (accessibility).
