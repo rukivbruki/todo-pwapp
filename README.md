@@ -1,10 +1,10 @@
-## Ветка `master`
+### Ветка `master`
 
 **_Основной стек:_** 
 
 CSS Grid Layout, Styled Components, Ant Design,  JS (ES2019), React.js (useReducer, useContext, useEffect, useState, useCallback, custom hooks)
 
-## Ветка `typescript`
+### Ветка `typescript`
 
 Добавлена статическая типизация при помощи TypeScript
 
