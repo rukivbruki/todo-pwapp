@@ -4,9 +4,10 @@
 
 CSS Grid Layout, Styled Components, Ant Design,  JS (ES2019), React.js (useReducer, useContext, useEffect, useState, useCallback, custom hooks)
 
-### Ветка `typescript`
+### Другие ветки: 
 
-Добавлена статическая типизация при помощи TypeScript
+- `typescript` - добавлена статическая типизация при помощи TypeScript
+- `redux` - применена библиотеки Redux c react-redux hooks API
 
 ### Ссылки
 
