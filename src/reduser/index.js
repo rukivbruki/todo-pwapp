@@ -107,14 +107,23 @@ const ActionCreator = {
 	  payload: newTodos,
 	};
   },
-  initial: (pending, result) => {
+  initial: (result) => {
 	initialData = result
 	return {
 	  type: ActionType.INITIAL,
-	  payload: pending,
+	  payload: false,
 	};
   },
 }
+
+const Operation = {
+  loadData: () => (dispatch, getState, api) => {
+	return api()
+	.then((result) => {
+	  dispatch(ActionCreator.initial(result));
+	});
+  },
+};
 
 const reducer = (state = initialData, action) => {
   let group = setGroup(action.payload)
@@ -144,6 +153,7 @@ const reducer = (state = initialData, action) => {
 export {
   ActionType,
   ActionCreator,
+  Operation,
   reducer,
   handleKeyDown,
   saveStorageState

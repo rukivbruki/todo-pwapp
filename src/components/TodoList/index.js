@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import {Context} from "../../services/сontextCreater";
+import React from "react";
+import {useDispatch} from "react-redux";
 import {DragDropContext} from "react-beautiful-dnd";
 import {useLocalStorage} from "../../services/useLocalStorage";
 import {saveStorageState} from "../../reduser";
@@ -16,7 +16,7 @@ const reorder = (list, startIndex, endIndex) => {
 
 const TodoList = (props) => {
   const {todoItems} = props
-  const {dispatch} = useContext(Context);
+  const dispatch = useDispatch();
   let [storedValue, setValue] = useLocalStorage()
   
   const onDragEnd = (result) => {

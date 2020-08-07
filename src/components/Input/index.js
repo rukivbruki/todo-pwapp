@@ -1,8 +1,8 @@
-import React, {useContext} from "react";
-import styled from 'styled-components';
+import React from "react";
+import {useDispatch} from "react-redux";
 import {ActionCreator, handleKeyDown} from "../../reduser";
-import {Context} from "../../services/сontextCreater";
 import {useLocalStorage} from "../../services/useLocalStorage";
+import styled from 'styled-components';
 
 const StyledInput = styled.input`
   min-width: 172px;
@@ -16,7 +16,8 @@ const StyledInput = styled.input`
 
 const Input = (props) => {
   const {todoItems, todo, i} = props
-  let {dispatch} = useContext(Context)
+  // let {dispatch} = useContext(Context)
+  const dispatch = useDispatch();
   let [storedValue, setValue] = useLocalStorage()
   const args = {i, todoItems, todo, dispatch, storedValue, setValue}
   

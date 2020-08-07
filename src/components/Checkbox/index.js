@@ -1,8 +1,8 @@
-import {Context} from "../../services/сontextCreater";
-import React, {useContext} from "react";
-import styled from 'styled-components';
+import React from "react";
+import {useDispatch} from "react-redux";
 import {ActionCreator} from "../../reduser";
 import {useLocalStorage} from "../../services/useLocalStorage";
+import styled from 'styled-components';
 
 const StyledCheckbox = styled.div`
   position: relative;
@@ -42,7 +42,7 @@ const StyledCheckbox = styled.div`
 const Checkbox = (props) => {
   const {todoItems, todo, i} = props
   let [storedValue, setValue] = useLocalStorage()
-  let {dispatch} = useContext(Context)
+  const dispatch = useDispatch();
   const args = {i, todoItems, storedValue, setValue}
   return (
 	<StyledCheckbox {...props}

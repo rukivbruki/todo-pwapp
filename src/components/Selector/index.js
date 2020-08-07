@@ -1,14 +1,16 @@
-import React, {useContext} from "react";
-import 'antd/dist/antd.css';
-import {Select} from 'antd';
+import React from "react";
+import {useDispatch, useSelector} from "react-redux";
 import {ActionCreator} from "../../reduser";
-import {Context} from "../../services/сontextCreater";
 import {groupKeys} from "../../services/initialData";
 import {useLocalStorage} from "../../services/useLocalStorage";
+import 'antd/dist/antd.css';
+import {Select} from 'antd';
+
 
 const Selector = (props) => {
   const {Option} = Select;
-  const {state, dispatch} = useContext(Context);
+  const dispatch = useDispatch();
+  const state = useSelector(state => state);
   const {todoItems, todo, i} = props
   const [storedValue, setValue] = useLocalStorage()
   const args = {i, state, todoItems, todo, dispatch, storedValue, setValue}

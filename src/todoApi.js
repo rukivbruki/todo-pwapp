@@ -6,7 +6,7 @@ const todoApi = () => {
 	  initialData ?
 		resolve(initialData) :
 		reject(() => console.log('Тут Какая то ошибка 😞'));
-	}, 2000);
+	}, 3000);
   });
 };
 

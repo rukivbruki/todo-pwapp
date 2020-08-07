@@ -1,10 +1,10 @@
-import React, {useContext} from "react";
-import {Context} from "../../services/сontextCreater";
+import React from "react";
+import {useSelector} from "react-redux";
 
 const WithTodoTasks = (group, WrappedComponent) => {
-  let {state} = useContext(Context)
+  const state = useSelector(state => state);
+  console.log("WithTodoTasks", state)
   const todoItems = state[group]
-    console.log("WithTodoTasks", todoItems)
 
   return (
 	<WrappedComponent todoItems={todoItems} />

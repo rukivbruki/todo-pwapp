@@ -1,13 +1,15 @@
-import React, {useEffect, useReducer} from "react";
+import React, {useEffect} from "react";
+import {Provider} from "react-redux";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import styled, {createGlobalStyle} from 'styled-components';
-import Layout from "../Layout";
-import {reducer} from "../../reduser";
-import {Context} from "../../services/сontextCreater";
-import {useAsync} from "../../services/useAsync";
+import {applyMiddleware, createStore} from "redux";
+import thunk from "redux-thunk";
+import {composeWithDevTools} from "redux-devtools-extension";
+import {Operation, reducer} from "../../reduser";
 import {useLocalStorage} from "../../services/useLocalStorage";
 import {todoApi} from "../../todoApi";
+import styled, {createGlobalStyle} from 'styled-components';
 
+import Layout from "../Layout";
 import MainPage from "../MainPage";
 import DailyDoings from "../DailyDoings";
 import MySecret from "../MySecret";
@@ -45,17 +47,24 @@ const Wrapper = styled.div`
 `;
 
 const App = () => {
-  // window.localStorage.removeItem("store")
+  window.localStorage.removeItem("store")
   let [storedValue] = useLocalStorage()
-  let [state, dispatch] = useReducer(reducer, storedValue);
-  console.log("App", state)
-  const {execute} = useAsync(dispatch, todoApi, false);
+  const store = createStore(
+	reducer,
+	storedValue,
+	composeWithDevTools(
+	  applyMiddleware(thunk.withExtraArgument(todoApi))
+	)
+  );
+  
+  console.log("App", store, reducer)
+  
   useEffect(() => {
-	execute()
-  }, [execute])
+	store.dispatch(Operation.loadData())
+  }, [])
   
   return (
-	<Context.Provider value={{state, dispatch}}>
+	<Provider store={store}>
 	  <GlobalStyle/>
 	  <Wrapper>
 		<Router>
@@ -77,7 +86,7 @@ const App = () => {
 		  </Layout>
 		</Router>
 	  </Wrapper>
-	</Context.Provider>
+	</Provider>
   )
 }
 

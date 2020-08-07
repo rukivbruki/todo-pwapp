@@ -1,13 +1,13 @@
-import React, {useContext} from "react";
+import React from "react";
+import {useDispatch} from "react-redux";
 import {Draggable} from "react-beautiful-dnd";
 import Input from "../Input";
 import DatePicker from "antd/es/date-picker";
 import Selector from "../Selector"
-import styled from 'styled-components';
 import moment from "moment";
 import {ActionCreator} from "../../reduser";
-import {Context} from "../../services/сontextCreater";
 import {useLocalStorage} from "../../services/useLocalStorage";
+import styled from 'styled-components';
 
 import Checkbox from "../Checkbox";
 
@@ -21,7 +21,7 @@ const StyledToTask = styled.div`
 const TodoTask = (props) => {
   const {todoItems, todo, i} = props
   let [storedValue, setValue] = useLocalStorage()
-  let {dispatch} = useContext(Context)
+  const dispatch = useDispatch();
   const args = {i, todoItems, storedValue, setValue}
   const setDate = (_, dateString) => {
 	dispatch(ActionCreator.setDeadline(args, dateString));
